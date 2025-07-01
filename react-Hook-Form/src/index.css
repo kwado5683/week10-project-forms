@@ -25,15 +25,13 @@ a:hover {
 }
 
 body {
-  
-  max-width: auto; 
-  background-image: url('https://cdn.pixabay.com/photo/2022/02/27/17/03/stones-7037638_1280.jpg'); 
+  max-width: auto;
+  background-image: url("https://cdn.pixabay.com/photo/2022/02/27/17/03/stones-7037638_1280.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
   margin: 0;
-
 }
 
 h1 {
@@ -70,5 +68,11 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  button {
+    color: rgba(255, 255, 255, 0.87);
   }
 }
