@@ -1,14 +1,13 @@
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import './index.css';
-
-
+import "./index.css";
 
 const schema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
-  password: z.string().min(8, { message: "Password must be at least 8 characters" }),
+  password: z
+    .string()
+    .min(8, { message: "Password must be at least 8 characters" }),
 });
 
 export default function App() {
@@ -37,18 +36,14 @@ export default function App() {
     }
   };
 
-
-
-
-
   return (
     <div className="min-h-screen flex items-center justify-center">
       <form
-        className="flex flex-col gap-4 w-full max-w-sm p-6 rounded-xl border border-white/20   shadow-xl text-white"
+        className="flex flex-col gap-4 w-full max-w-sm p-6 rounded-xl border border-white/20  shadow-xl text-white"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h2 className="text-2xl font-bold text-center">Login</h2>
-  
+
         <input
           {...register("email")}
           type="text"
@@ -56,9 +51,11 @@ export default function App() {
           className="p-2 rounded-md bg-white/10 border border-white/30 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
         />
         {errors.email && (
-          <div className="text-red-400 font-semibold">{errors.email.message}</div>
+          <div className="text-red-400 font-semibold">
+            {errors.email.message}
+          </div>
         )}
-  
+
         <input
           {...register("password")}
           type="password"
@@ -66,9 +63,11 @@ export default function App() {
           className="p-2 rounded-md bg-white/10 border border-white/30 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
         />
         {errors.password && (
-          <div className="text-red-400 font-semibold">{errors.password.message}</div>
+          <div className="text-red-400 font-semibold">
+            {errors.password.message}
+          </div>
         )}
-  
+
         <button
           disabled={isSubmitting}
           type="submit"
@@ -76,14 +75,11 @@ export default function App() {
         >
           {isSubmitting ? "Loading..." : "Submit"}
         </button>
-  
+
         {errors.root && (
           <div className="text-red-400 text-center">{errors.root.message}</div>
         )}
       </form>
     </div>
   );
-  
-
- 
 }
